@@ -20,7 +20,7 @@ def app(request, config):
     web_config = config['web']
     if fixture is None or not fixture.is_valid():
         # создаем фикстуру, т.е. объект типа Application
-        fixture = Application(browser=browser, base_url=config['web']['baseUrl'])
+        fixture = Application(browser=browser, config=config)
     return fixture
 
 
