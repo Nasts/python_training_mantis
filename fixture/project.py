@@ -49,6 +49,22 @@ class ProjectHelper:
             self.projects_cache.pop(0)
         return self.projects_cache
 
+    def delete_project(self, project_for_del):
+        wd = self.app.wd
+        wd.find_element_by_link_text(project_for_del.name).click()
+        wd.find_element_by_xpath("//input[@value='Delete Project']").click()
+        time.sleep(1)
+        wd.find_element_by_xpath("//input[@value='Delete Project']").click()
+        self.projects_cache = None
+
+
+
+
+
+
+
+
+
 
 
 
