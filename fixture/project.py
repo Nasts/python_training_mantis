@@ -22,6 +22,7 @@ class ProjectHelper:
         self.fill_project_form(project)
         wd.find_element_by_xpath("//input[@value='Add Project']").click()
 
+
     def fill_project_form(self, project):
         wd = self.app.wd
         self.change_field_value("name", project.name)
@@ -56,6 +57,14 @@ class ProjectHelper:
         time.sleep(1)
         wd.find_element_by_xpath("//input[@value='Delete Project']").click()
         self.projects_cache = None
+
+    def compare(self, list1, list2):
+        equals = True
+        for l1, obj in enumerate(list1):
+            if obj.name != list2[l1].name or obj.id != list2[l1].id or obj.description != list2[l1].description:
+                equals = False
+                break
+        return equals
 
 
 
